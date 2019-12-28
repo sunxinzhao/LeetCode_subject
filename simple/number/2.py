@@ -32,4 +32,22 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
+        # (2 -> 4 -> 3) + (5 -> 6 -> 4)
+        return_data = ListNode(0)
+        next_return = return_data
+        wei = 0
+        while (l1 or l2):
+            l1_val = l1.val if l1 else 0
+            l2_val = l2.val if l2 else 0
+            val = l1_val + l2_val + wei
+            next_return.val = val % 10
+            wei = val // 10
+            if(l1!=None):l1=l1.next
+            if(l2!=None):l2=l2.next
+            if (l1 or l2):
+                next_return.next = ListNode(0)
+                next_return = next_return.next
+        if wei:
+            next_return.next = ListNode(wei)
+        return return_data
 

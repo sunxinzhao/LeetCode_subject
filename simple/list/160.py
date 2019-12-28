@@ -44,17 +44,8 @@ class Solution1(object):
         :type head1, head1: ListNode
         :rtype: ListNode
         """
-
-        head1 = headA
-        head2 = headB
-        while head1:
-            print(head1)
-
-            while head2:
-
-                if head1.val == head2.val:
-                    return 'Intersected at {}'.format(head2.val)
-                head2 = head2.next
-            head1 = head1.next
-            head2 = headB
-        return None
+        ha, hb = headA, headB
+        while ha != hb:
+            ha = ha.next if ha else headB
+            hb = hb.next if hb else headA
+        return ha
