@@ -22,3 +22,18 @@
     链接：https://leetcode-cn.com/problems/valid-phone-numbers
     著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 '''
+
+# Read from the file file.txt and output all valid phone numbers to stdout.
+# \([0-9]{3}\) [0-9]{3}-[0-9]{4}
+# [0-9]{3}-[0-9]{3}-[0-9]{4}
+grep -E '^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$|^[0-9]{3}-[0-9]{3}-[0-9]{4}$' file.txt
+grep -E '^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$'  file.txt
+awk '/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-([0-9]{4})$/' file.txt
+
+
+
+grep 更适合单纯的查找或匹配文本
+sed  更适合编辑匹配的文本
+awk  更适合格式化文本，对文本进行较复杂格式处理
+
+awk  教程    http://www.zsythink.net/archives/1336
