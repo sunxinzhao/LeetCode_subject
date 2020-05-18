@@ -30,22 +30,34 @@
 '''
 
 
+#
 class Solution:
     def getHint(self, secret: str, guess: str) -> str:
         secret = list(secret)
         guess = list(guess)
         A_num = 0
+        B_num = 0
+        a_dict = {}
+        b_dict = {}
         for i in range(len(secret)):
             if secret[i] == guess[i]:
                 A_num += 1
-        B_num = len([x for x in secret if x in guess])
-        print([x for x in secret if x in guess])
-        print(A_num)
-        print(B_num)
-        return str(A_num) + 'A' + str(B_num - A_num) + 'B'
+            else:
+                if secret[i] in a_dict.keys():
+                    a_dict[secret[i]] = a_dict[secret[i]] + 1
+                else:
+                    a_dict[secret[i]] = 1
+                if guess[i] in b_dict.keys():
+                    b_dict[guess[i]] = b_dict[guess[i]] + 1
+                else:
+                    b_dict[guess[i]] = 1
+        for i in set(secret):
+            if i in a_dict.keys() and i in b_dict.keys():
+                B_num += min(a_dict[i], b_dict[i])
+        return str(A_num) + 'A' + str(B_num) + 'B'
 
 
 if __name__ == '__main__':
-    A = '11'
-    B = '01'
+    A = '1123'
+    B = '0111'
     print(Solution().getHint(A, B))
