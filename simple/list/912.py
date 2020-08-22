@@ -82,6 +82,30 @@ class Solution3:
         return nums
 
 
+class Solution4:
+    def sortArray(self, nums):
+
+        def quick_sort(num, start, end):
+            if start >= end:
+                return num
+            jizhun = num[start]
+            less = start + 1
+            than = end
+            while start < end:
+                while start < end and jizhun < num[end]:
+                    end -= 1
+                num[start] = num[end]
+                while start < end and jizhun > num[start]:
+                    start += 1
+                num[end] = num[start]
+            num[end] = jizhun
+            quick_sort(nums, less, start-1)
+            quick_sort(nums, start+1, than)
+
+        quick_sort(nums, 0, len(nums) - 1)
+        return nums
+
+
 if __name__ == '__main__':
     list_data = [-1, 2, -8, -10]
-    print(Solution2().sortArray(list_data))
+    print(Solution4().sortArray(list_data))

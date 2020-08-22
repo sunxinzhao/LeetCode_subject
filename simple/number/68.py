@@ -38,3 +38,34 @@ class Solution(object):
 
 if __name__ == '__main__':
     print(Solution().mySqrt(2147395599))
+
+    #
+    # a = [1, 5, 7]
+    # b = [1, 2, 3, 6, 8, 9, 10]
+    # c = []
+    # a1 = 0
+    # b1 = 0
+    # i = 0
+    # while i < (len(a) + len(b)):
+    #     if a1 < len(a) and b1 < len(b):
+    #         while a1 < len(a) and b1 < len(b) and a[a1] <= b[b1]:
+    #             c.append(a[a1])
+    #             a1 += 1
+    #             i += 1
+    #         while a1 < len(a) and b1 < len(b) and b[b1] <= a[a1]:
+    #             c.append(b[b1])
+    #             b1 += 1
+    #             i += 1
+    #     else:
+    #         if a1 >= len(a):
+    #             while b1 < len(b):
+    #                 c.append(b[b1])
+    #                 b1 += 1
+    #                 i += 1
+    #         if b1 >= len(b):
+    #             while a1 < len(a):
+    #                 c.append(a[a1])
+    #                 a1 += 1
+    #                 i += 1
+    #
+    # print(c)
